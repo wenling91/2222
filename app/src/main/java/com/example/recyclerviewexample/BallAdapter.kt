@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 
 class BallAdapter(val ballList: List<Balls>) : RecyclerView.Adapter<BallAdapter.ViewHolder>() {
@@ -18,8 +19,10 @@ class BallAdapter(val ballList: List<Balls>) : RecyclerView.Adapter<BallAdapter.
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.my_layout, parent, false)
         val viewHolder = ViewHolder(view)
-        viewHolder.itemView.setOnClickListener {  //onClick 
-            Toast.makeText(parent.context, ballList[viewHolder.adapterPosition].name, Toast.LENGTH_SHORT).show()
+        //onClick 
+        viewHolder.itemView.setOnClickListener {
+            //Toast.makeText(parent.context, ballList[viewHolder.adapterPosition].name, Toast.LENGTH_SHORT).show()
+            view.findNavController().navigate(TitleFragmentDirections.actionTitleFragmentToDetailsFragment(ballList[viewHolder.adapterPosition].name))
         }
 
         return viewHolder

@@ -2,40 +2,24 @@ package com.example.recyclerviewexample
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.navigation.findNavController
+import androidx.navigation.ui.NavigationUI
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.recyclerviewexample.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityMainBinding
-    //data source
-    private val ballList = ArrayList<Balls>()
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
 
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-
-        //setup our initial data
-        initBallList()
-
-        //configure the recyclerview
-        val layoutManager = LinearLayoutManager(this)
-        binding.recyclerview.layoutManager = layoutManager
-        val adapter = BallAdapter(ballList)
-        //pass by reference
-        binding.recyclerview.adapter = adapter
-        binding.recyclerview.addItemDecoration(DividerItemDecoration(this, DividerItemDecoration.VERTICAL)) //add a divider line
-
+        val navController = this.findNavController(R.id.myNavHostFragment)
+        NavigationUI.setupActionBarWithNavController(this, navController)
     }
 
-    private fun initBallList() {
-        
-        ballList.add(Balls("Baseball", R.drawable.baseball))
-        ballList.add(Balls("Basketball", R.drawable.basketball))
-        ballList.add(Balls("Football", R.drawable.football))
-        ballList.add(Balls("Other", R.drawable.other))
+    override fun onSupportNavigateUp(): Boolean {
+
+        return findNavController(R.id.myNavHostFragment).navigateUp()
     }
 }
