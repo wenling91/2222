@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -23,6 +24,9 @@ class TitleFragment : Fragment() {
         // Inflate the layout for this fragment
         binding = FragmentTitleBinding.inflate(inflater, container, false)
 
+        //set fragment title
+        (activity as AppCompatActivity).supportActionBar?.title = "List of Sports"
+
         //setup our initial data
         initBallList()
 
@@ -39,6 +43,7 @@ class TitleFragment : Fragment() {
         val dividerItemDecoration = DividerItemDecoration(context, DividerItemDecoration.VERTICAL)
         binding.recyclerview.addItemDecoration(dividerItemDecoration)
 //        binding.recyclerview.addItemDecoration(DividerItemDecoration(this, DividerItemDecoration.VERTICAL)) //add a divider line
+
 
         return binding.root
     }

@@ -16,6 +16,7 @@ class MainActivity : AppCompatActivity() {
 
         val navController = this.findNavController(R.id.myNavHostFragment)
         NavigationUI.setupActionBarWithNavController(this, navController)
+        //supportActionBar?.title = "List of Sports"
     }
 
     override fun onSupportNavigateUp(): Boolean {
