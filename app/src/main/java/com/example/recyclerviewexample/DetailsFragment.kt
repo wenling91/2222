@@ -23,8 +23,8 @@ class DetailsFragment : Fragment() {
         // Inflate the layout for this fragment
         binding = FragmentDetailsBinding.inflate(layoutInflater)
 
-        //set fragment title
-        (activity as AppCompatActivity).supportActionBar?.title = "Detailed Information"
+//        //set fragment title
+//        (activity as AppCompatActivity).supportActionBar?.title = "Detailed Information"
 
         val args = DetailsFragmentArgs.fromBundle(requireArguments())
         binding.ballName.text = args.name

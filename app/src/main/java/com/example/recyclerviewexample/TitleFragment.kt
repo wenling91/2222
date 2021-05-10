@@ -24,8 +24,8 @@ class TitleFragment : Fragment() {
         // Inflate the layout for this fragment
         binding = FragmentTitleBinding.inflate(inflater, container, false)
 
-        //set fragment title
-        (activity as AppCompatActivity).supportActionBar?.title = "List of Sports"
+//        //set fragment title
+//        (activity as AppCompatActivity).supportActionBar?.title = "List of Sports"
 
         //setup our initial data
         initBallList()
@@ -39,9 +39,10 @@ class TitleFragment : Fragment() {
         //pass by reference
         binding.recyclerview.adapter = adapter
 
-        //add a divider line
-        val dividerItemDecoration = DividerItemDecoration(context, DividerItemDecoration.VERTICAL)
-        binding.recyclerview.addItemDecoration(dividerItemDecoration)
+//        //add a divider line
+//        val dividerItemDecoration = DividerItemDecoration(context, DividerItemDecoration.VERTICAL)
+//        binding.recyclerview.addItemDecoration(dividerItemDecoration)
+
 //        binding.recyclerview.addItemDecoration(DividerItemDecoration(this, DividerItemDecoration.VERTICAL)) //add a divider line
 
 
